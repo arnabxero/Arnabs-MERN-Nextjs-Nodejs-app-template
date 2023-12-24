@@ -2,26 +2,311 @@
 @tailwind components;
 @tailwind utilities;
 
+/* variables.css */
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* bg colors */
+  --bg-white-1: #ffffff;
+  --bg-white-2: #f8f7fa;
+  --bg-white-3: #cfcfcf;
+
+  --bg-dark-1: #000000;
+  --bg-dark-2: #1e1e1e;
+  --bg-dark-3: #282828;
+
+  --text-white-1: #000000;
+  --text-white-2: #222222;
+  --text-white-3: #333333;
+
+  --text-dark-1: #ffffff;
+  --text-dark-2: #dcdcdc;
+  --text-dark-3: #9e9e9e;
+
+  --border-dark-1: #202020;
+  --border-dark-2: #393939;
+  --border-dark-3: #686868;
+
+  --border-light-1: #eaeaea;
+  --border-light-2: #b3b3b3;
+  --border-light-3: #818181;
+
+
+  --transition-slow: 0.9s;
+  --transition-fast: 0.5s;
+  --gradient-selected: linear-gradient(to right, #9333ea, #a5a0fa);
+  --gradient-hover: linear-gradient(to right, #a5ceff, #7499ea);
+  --gradient-disabled: linear-gradient(to right, #bfdbfe, #60a5fa);
+  --gradient-small: linear-gradient(to right, #f3e8ff, #b8b6fb);
+  --gradient-small2: linear-gradient(to right, #f97316, #ffea5f);
+  --gradient-red: linear-gradient(to right, #ff0000, #ff7300);
+  --gradient-green: linear-gradient(to right, #009f00, #dfcc00);
+  --color-black: black;
+  --color-white: white;
+  --color-gray: #6b7280;
+  --transform-hover: translateY(-1px);
 }
 
-@media (prefers-color-scheme: dark) {
+/* globals.css */
+.dark-border-1 {
+  border-color: var(--border-dark-1);
+}
+
+.dark-border-2 {
+  border-color: var(--border-dark-2);
+}
+
+.dark-border-3 {
+  border-color: var(--border-dark-3);
+}
+
+.light-border-1 {
+  border-color: var(--border-light-1);
+}
+
+.light-border-2 {
+  border-color: var(--border-light-2);
+}
+
+.light-border-3 {
+  border-color: var(--border-light-3);
+}
+
+.light-text-1 {
+  color: var(--text-white-1);
+}
+
+.light-text-2 {
+  color: var(--text-white-2);
+}
+
+.light-text-3 {
+  color: var(--text-white-3);
+}
+
+.dark-text-1 {
+  color: var(--text-dark-1);
+}
+
+.dark-text-2 {
+  color: var(--text-dark-2);
+}
+
+.dark-text-3 {
+  color: var(--text-dark-3);
+}
+
+.light-bg-1 {
+  background-color: var(--bg-white-1);
+}
+
+.light-bg-2 {
+  background-color: var(--bg-white-2);
+}
+
+.light-bg-3 {
+  background-color: var(--bg-white-3);
+}
+
+.dark-bg-1 {
+  background-color: var(--bg-dark-1);
+}
+
+.dark-bg-2 {
+  background-color: var(--bg-dark-2);
+}
+
+.dark-bg-3 {
+  background-color: var(--bg-dark-3);
+}
+
+
+
+.move-transition-slow {
+  transition: all var(--transition-slow);
+}
+
+.xero-card {}
+
+.xero-card:hover {
+  background-image: var(--gradient-hover);
+  transition: all ease-in-out var(--transition-fast);
+  color: var(--color-black) !important;
+  transform: var(--transform-hover);
+}
+
+.xero-card-selected {
+  background-image: var(--gradient-selected);
+  color: var(--color-white) !important;
+}
+
+.xero-card-selected:hover {
+  background-image: var(--gradient-hover);
+}
+
+.xero-button-bg {
+  background-image: var(--gradient-selected);
+  transition: all var(--transition-fast);
+  color: var(--color-white) !important;
+}
+
+.xero-button-bg:hover {
+  background-image: var(--gradient-hover);
+  transform: var(--transform-hover);
+}
+
+.xero-button-disabled {
+  color: var(--color-gray);
+  transition: all var(--transition-fast);
+}
+
+.xero-button-disabled:hover {
+  background-image: var(--gradient-disabled);
+  transform: var(--transform-hover);
+}
+
+.xero-button-small {
+  background-image: var(--gradient-small);
+  color: var(--color-black);
+  transition: all var(--transition-fast);
+}
+
+.xero-button-small:hover {
+  background-image: var(--gradient-hover);
+  transform: var(--transform-hover);
+}
+
+.xero-button2-small {
+  background-image: var(--gradient-small2);
+  color: var(--color-black);
+  transition: all var(--transition-fast);
+}
+
+.xero-button2-small:hover {
+  background-image: var(--gradient-hover);
+  transform: var(--transform-hover);
+}
+
+
+/* Colored custom buttons */
+
+.xero-button-red {
+  background-color: oklch(70.14% 0.2494 29.233885192342594);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-fast);
+}
+
+.xero-button-red:hover {
+  background-color: oklch(75.14% 0.2494 29.233885192342594);
+  transform: var(--transform-hover);
+}
+
+.xero-button-green {
+  background-color: oklch(56.18% 0.153 168.35);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-fast);
+}
+
+.xero-button-green:hover {
+  background-color: oklch(63.6% 0.153 168.35);
+  transform: var(--transform-hover);
+}
+
+.xero-button-blue {
+  background-color: oklch(60.48% 0.2866 264.05202063805507);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-fast);
+}
+
+.xero-button-blue:hover {
+  background-color: oklch(65.48% 0.2866 264.05202063805507);
+  transform: var(--transform-hover);
+}
+
+.xero-button-yellow {
+  background-color: oklch(75.88% 0.208 57.18);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-fast);
+}
+
+.xero-button-yellow:hover {
+  background-color: oklch(80.88% 0.208 57.18);
+  transform: var(--transform-hover);
+}
+
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
 }
